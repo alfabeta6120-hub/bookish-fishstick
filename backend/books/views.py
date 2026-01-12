@@ -24,6 +24,6 @@ class BookTypeViewSet(viewsets.ModelViewSet):
 """Создаем Представление для Модели Book(Книга)"""
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
-    serializer_class = BookSerializer()
+    serializer_class = BookSerializer
     
        
