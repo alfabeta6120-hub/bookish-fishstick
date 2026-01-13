@@ -22,14 +22,9 @@ class Author(models.Model):
 class Genre(models.Model):
     
     # жанр книги
-    title = models.CharField(max_length=20,choices=[
+    title = models.CharField(max_length=20)
         
-        ('the class','классика'),
-        ('drama','драма' ),
-        ('comedi','комедия'),
-        ('fantastic','фантастика'),
-        ])
-    
+       
     def __str__(self) -> str:
         return self.title
     
@@ -61,9 +56,9 @@ class Book(models.Model):
     
     """Передаем атрибуты передаются по первичному ключу"""
     # Тип книги
-    book_type = models.ManyToManyField(BookType,blank=True)
+    book_type = models.ForeignKey(BookType,on_delete=models.CASCADE)
     # Автор
-    author = models.ForeignKey(Author,on_delete=models.CASCADE)
+    author = models.ManyToManyField(Author,blank=True)
     # Жанр
     genre = models.ManyToManyField(Genre,blank=True)
     

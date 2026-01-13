@@ -6,14 +6,12 @@ from users.models import User
 """Создаем Модель BookCopy (экземпляр книги)"""
 class BookCopy(models.Model):
     
-    # Инвентарный номер книги
-    inventory_number = models.PositiveIntegerField()
     
     # Статус книги
     status = models.CharField(max_length=20,choices=[
         ('available','доступна'),
         ('issued','выдана'),
-        ('repaired','ремонт')
+        ('repaired','ремонт'),
     ])
     # Количество книг
     quantity = models.CharField(max_length=5)

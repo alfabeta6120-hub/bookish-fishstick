@@ -10,13 +10,15 @@ class Reviews(models.Model):
     review_author = models.ForeignKey(User,on_delete=models.CASCADE)
     
     # текст отзыва
-    text = models.TextField(blank=True)
+    text = models.CharField(max_length=250)
     
     # оценка
     estimation = models.CharField(max_length=20,choices=[
-        ('good','хорошо'),
-        ('excellent','отлично'),
-        ('badly','плохо'),
+        ('One star','одна звезда'),
+        ('Two','две звезды'),
+        ('Three stars','три звезды'),
+        ('Four stars','четыре звезды'),
+        ('Five stars','пять звезд'),
         
     ])
     

@@ -2,6 +2,7 @@ from .models import Author,Genre,BookType,Book
 from rest_framework import serializers
 
 
+
 """Создаем Сериализацию для Модели Author"""
 class AuthorSerializer(serializers.ModelSerializer):
     
@@ -34,7 +35,7 @@ class BookSerializer(serializers.ModelSerializer):
     # Тип книги
     book_type = BookTypeSerializer(write_only=True)
     # Автор
-    author = AuthorSerializer(write_only= True)
+    author = serializers.CharField(source='author.name',read_only=True)
     # Жанр
     genre = GenreSerializer(write_only= True)    
      

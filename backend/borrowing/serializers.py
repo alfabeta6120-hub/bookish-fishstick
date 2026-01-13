@@ -5,18 +5,20 @@ from rest_framework import serializers
 
 """Создаем Сериализацию для Модели BookCopy(экземпляр книги)"""
 class BookCopySerializer(serializers.ModelSerializer):
+    
     # книга
     book = BookSerializer(read_only=True)
     
     class Meta:
         model = BookCopy
         #  передаем атрибуты модели
-        fields = ['id','book','inventory_number','status','quantity']
+        fields = ['id','book','status','quantity']
         
         
 
 """Создаем Сериализацию для Модели Borrowing (Выдача книг)"""
 class BorrowingSerializer(serializers.ModelSerializer):
+    
     # экземпляр книги
     book_copy = BookCopySerializer(read_only=True)
     # пользователь
